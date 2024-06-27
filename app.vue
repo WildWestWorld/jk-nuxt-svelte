@@ -8,7 +8,6 @@ import '@unocss/reset/tailwind.css'
   </NuxtLayout>
 </template>
 
-
 <style>
 .dark {
   color-scheme: dark;

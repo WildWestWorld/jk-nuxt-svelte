@@ -6,10 +6,16 @@ export default defineNuxtConfig({
     "@unocss/nuxt",
     "@nuxt/content",
     "@nuxtjs/color-mode",
-    "@nuxt/image"
+    "@nuxt/image",
+    "@nuxt/eslint"
   ],
   colorMode: {
     preference: 'dark', // default value of $colorMode.preference
     classSuffix: ''
+  },
+  eslint: {
+    config: {
+      standalone: false // <---
+    }
   }
 })
