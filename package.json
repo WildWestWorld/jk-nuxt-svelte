@@ -17,6 +17,7 @@
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/color-mode": "^3.4.2",
     "@vueuse/core": "^10.11.0",
+    "@webcontainer/api": "^1.2.0",
     "nuxt": "^3.12.2",
     "vue": "^3.4.30",
     "vue-router": "^4.4.0"

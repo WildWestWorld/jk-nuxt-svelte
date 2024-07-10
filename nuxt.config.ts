@@ -17,5 +17,15 @@ export default defineNuxtConfig({
     config: {
       standalone: false // <---
     }
-  }
+  },
+  nitro: {
+    routeRules: {
+      '**': {
+        headers: {
+          'Cross-Origin-Embedder-Policy': 'require-corp',
+          'Cross-Origin-Opener-Policy': 'same-origin',
+        },
+      },
+    }
+  },
 })
