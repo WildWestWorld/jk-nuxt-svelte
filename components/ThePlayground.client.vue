@@ -58,8 +58,8 @@ async function startDevServer() {
     throw new Error('Unable to run npm install');
   }
   status.value = 'start'
-  const devProcess = await wc.spawn('npm', ['run', 'dev']);
-  stream.value = installProcess.output;
+  const devProcess = await wc.spawn('pnpm', ['run', 'dev'])
+  stream.value = devProcess.output
 
 
 }
