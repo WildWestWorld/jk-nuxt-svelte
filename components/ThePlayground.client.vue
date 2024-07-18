@@ -1,4 +1,5 @@
 <script setup lang="ts" >
+import type { FileSystemTree } from '@webcontainer/api';
 import TerminalOutput from './TerminalOutput.vue';
 
 const iframe = ref<HTMLIFrameElement>()
@@ -11,6 +12,17 @@ const error = shallowRef<{ message: string }>()
 const stream = ref<ReadableStream>()
 
 async function startDevServer() {
+  const rawFiles = import.meta.glob(['../templates/basic/*.*', '!**/node_modules/**'], { query: '?raw', import: 'default', eager: true })
+
+  const files = Object.fromEntries(Object.entries(rawFiles).map(([path, content]) => {
+    return [path.replace('../templates/basic/', ''), {
+      file: {
+        contents: content
+      }
+    }]
+  }))
+  console.log(rawFiles, files)
+
   const wc = await useWebContainer();
 
   wc.on('server-ready', (port, url) => {
@@ -26,22 +38,7 @@ async function startDevServer() {
 
   status.value = 'mount'
 
-  await wc.mount({
-    'package.json': {
-      file: {
-        contents: JSON.stringify({
-          private: true,
-          scripts: {
-            dev: 'nuxt dev'
-          },
-          dependencies: {
-            nuxt: 'latest',
-            vue: 'latest'
-          }
-        }, null, 2)
-      }
-    }
-  })
+  await wc.mount(files as FileSystemTree )
 
 
   status.value = 'install'

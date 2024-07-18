@@ -7,15 +7,27 @@ const props = defineProps<{
 
 const root = ref<HTMLDivElement>()
 const terminal = new Terminal()
-const stream = new WritableStream({
-  write(chunk) {
-    terminal.write(chunk)
-  }
-})
+// const stream = new WritableStream({
+//   write(chunk) {
+//     terminal.write(chunk)
+//   }
+// })
 
 
 watch(() => props.stream, (s) => {
-  s?.pipeTo(stream)
+  if (!s) {
+    return
+  }
+  const reader = s.getReader();
+  function read() {
+    reader.read().then(({ done, value }) => {
+      terminal.write(value)
+      if (!done) {
+        read()
+      }
+    })
+  }
+  read()
 }, { immediate: true })
 
 onMounted(() => {
