@@ -82,7 +82,7 @@ onMounted(startDevServer)
       </div>
       {{ status }}ing...
     </div>
-    <TerminalOutput :stream="stream"></TerminalOutput>
+    <TerminalOutput :stream="stream" class="min-h-0" />
 
   </div>
 </template>
