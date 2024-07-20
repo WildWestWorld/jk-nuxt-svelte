@@ -1,8 +1,12 @@
 
+
 <template>
   <nav px6 py4 text-lg border-b border-base flex="~ gap-2 items-center">
-    <div i-logos-nuxt-icon text-4xl></div>
-    <span text-xl>JK.Svelte.com</span>
+
+    <NuxtLink to="/" flex="~ gap-2 items-center" title="Nuxt Playground">
+      <NuxtLogo class="h-1.3em mt--1.8"></NuxtLogo>
+      <span text-xl>Playground</span>
+    </NuxtLink>
 
     <div flex-auto></div>
 

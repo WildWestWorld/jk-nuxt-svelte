@@ -13,8 +13,8 @@ import '@unocss/reset/tailwind.css'
   color-scheme: dark;
 }
 html,body{
-
   height: 100vh;
   overflow: hidden;
+  --uno:'bg-base';
 }
 </style>

@@ -38,7 +38,7 @@ async function startDevServer() {
 
   status.value = 'mount'
 
-  await wc.mount(files as FileSystemTree )
+  await wc.mount(files as FileSystemTree)
 
 
   status.value = 'install'
@@ -61,6 +61,12 @@ async function startDevServer() {
   const devProcess = await wc.spawn('pnpm', ['run', 'dev'])
   stream.value = devProcess.output
 
+  // In dev,when doing HRM, we kill the previous process while resusing the same WebContainer 
+  if (import.meta.hot) {
+    import.meta.hot.accept(() => {
+      devProcess.kill()
+    });
+  }
 
 }
 

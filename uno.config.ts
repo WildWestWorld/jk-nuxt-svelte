@@ -1,4 +1,4 @@
-import { defineConfig, presetUno, presetIcons, presetAttributify } from 'unocss';
+import { defineConfig, presetUno, presetIcons, presetAttributify,transformerDirectives, presetWebFonts } from 'unocss';
 
 export default defineConfig({
   presets: [
@@ -6,10 +6,21 @@ export default defineConfig({
     presetIcons({
       cdn: 'https://esm.sh/',
     }),
-    presetAttributify()
+    presetAttributify(),
+    presetWebFonts({
+      provider:'bunny',
+      fonts:{
+        sans:'DM Sans',
+        mono:'DM mono'
+      }
+    })
   ],
   shortcuts: {
     'border-base': 'border-gray-300  dark:border-gray-600',
-    'bg-active': 'bg-gray:10'
+    'bg-active': 'bg-gray:10',
+    'bg-base': 'bg-white  dark:bg-[#020420]'
   },
+  transformers:[
+    transformerDirectives(),
+  ],
 })
