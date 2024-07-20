@@ -1,4 +1,4 @@
-import { defineConfig, presetUno, presetIcons, presetAttributify,transformerDirectives, presetWebFonts } from 'unocss';
+import { defineConfig, presetUno, presetIcons, presetAttributify, transformerDirectives, presetWebFonts } from 'unocss';
 
 export default defineConfig({
   presets: [
@@ -8,19 +8,19 @@ export default defineConfig({
     }),
     presetAttributify(),
     presetWebFonts({
-      provider:'bunny',
-      fonts:{
-        sans:'DM Sans',
-        mono:'DM mono'
+      provider: 'bunny',
+      fonts: {
+        sans: 'DM Sans',
+        mono: 'DM mono'
       }
     })
   ],
   shortcuts: {
-    'border-base': 'border-gray-300  dark:border-gray-600',
+    'border-base': 'border-gray-200 dark:border-gray-800',
     'bg-active': 'bg-gray:10',
     'bg-base': 'bg-white  dark:bg-[#020420]'
   },
-  transformers:[
+  transformers: [
     transformerDirectives(),
   ],
 })
