@@ -11,9 +11,9 @@ function toggleDark() {
 
 <template>
   <div class="grid grid-cols-[1fr_2fr] h-full of-hidden max-h-full">
-    <div class="border-r border-base p4">
+    <article class="border-r border-base p4 prose">
       <ContentDoc></ContentDoc>
-    </div>
+    </article>
     <ThePlayground></ThePlayground>
   </div>
 </template>

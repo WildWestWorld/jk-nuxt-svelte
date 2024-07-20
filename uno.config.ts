@@ -1,4 +1,4 @@
-import { defineConfig, presetUno, presetIcons, presetAttributify, transformerDirectives, presetWebFonts } from 'unocss';
+import { defineConfig, presetUno, presetIcons, presetAttributify, transformerDirectives, presetWebFonts, presetTypography } from 'unocss';
 
 export default defineConfig({
   presets: [
@@ -13,7 +13,8 @@ export default defineConfig({
         sans: 'DM Sans',
         mono: 'DM mono'
       }
-    })
+    }),
+    presetTypography()
   ],
   shortcuts: {
     'border-base': 'border-gray-200 dark:border-gray-800',
